@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiseLeak | Главная</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Golos Text', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        button {
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: lightsteelblue;
+            padding: 6px 32px;
+            border: none;
+            outline: none;
+        }
+
+        #no {
+            position: absolute;
+            bottom: 40vh;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id="title">Ты далбоёб?</h1>
+        <button id="yes">Да</button>
+        <button id="no">Нет</button>
+    </main>
+  <a href="https://wiseleak.fun">Наш форум</a>
+
+<script>
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    const title = document.getElementById("title")
+    const buttonYes = document.getElementById("yes")
+    const buttonNo = document.getElementById("no")
+
+    buttonNo.addEventListener("mouseenter", (ev) => {
+        ev.preventDefault()
+
+        buttonNo.style.left = `${getRandomInt(10, 90)}vw`
+        buttonNo.style.bottom = `${getRandomInt(10, 90)}vh`
+    })
+
+    buttonYes.addEventListener("click", (ev) => {
+        ev.preventDefault()
+
+        title.innerHTML = "Я знал!"
+        setTimeout(() => {
+            title.innerHTML = "Ты далбоёб?"
+        }, 2000)
+    })
+</script>
+</body>
+</html>
